@@ -31,7 +31,24 @@ function App() {
     firstCard ? setSecondCard(card) : setFirstCard(card)
   }
 
-  useEffect
+  const resetCard = () => {
+    setFirstCard(null)
+    setSecondCard(null)
+  }
+
+  useEffect(() => {
+    if( firstCard && secondCard) {
+      if(firstCard.src === secondCard.src) {
+        console.log("card matched")
+      resetCard()
+      setTurns(prev => prev + 1)
+      } else {
+        console.log("card not matched")
+        resetCard()
+        setTurns(0)
+      }
+    }
+  }, [firstCard, secondCard])
   
   return (
     <div className="App">
