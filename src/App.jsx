@@ -44,7 +44,7 @@ function App() {
     if( firstCard && secondCard) {
       setDisable(true)
       if(firstCard.src === secondCard.src) {
-        console.log("matched")
+        // console.log("matched")
         setCards(prevCards => {
           return prevCards.map(card => {
               if(card.src === firstCard.src) {
@@ -56,7 +56,7 @@ function App() {
         })
       resetCard()
       } else {
-        console.log("card not matched")
+        // console.log("card not matched")
         setTimeout(() => resetCard(), 1000)
       }
     }
